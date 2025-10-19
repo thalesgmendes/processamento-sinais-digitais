@@ -1,3 +1,6 @@
+# (|α| > 1) e decrescente(|α| < 1)
+
+#from scipy.signal import lfilter
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -47,12 +50,12 @@ def convolucao(xn, hn, n):
         soma = 0
     return yn
 
-def convolucao2(xn, hn):
+def convolucao2(xn, hn, n):
     soma = 0
     yn = []
-    for n in range(len(xn)):
-        for k in range(0, n+1):
-            hk = n - k
+    for i in range(n):
+        for k in range(0, i+1):
+            hk = i - k
             if hk >= 0:
                 conv = xn[k] * hn(hk)
             else:
@@ -63,14 +66,27 @@ def convolucao2(xn, hn):
         soma = 0
     return yn
 
-l = [0,1,2,3,5]
-l1 = [0.8,0,0.5,0.70,0,1.3]
-l2=[1.0,0,0.25,0.125,0,0.0625]
-#l2 = lambda n: 0.5**n
-l3 = convolucao2(l1, l2)
-n = list(range(len(l1)))
-plt.stem(n,l1)
-plt.show()
+
+#l = [0,1,2,3,5]
+#l1 = [0.8,0,0.5,0.70,0,1.3]
+#l2=[1.0,0,0.25,0.125,0,0.0625]
+#l3 = convolucao2(l1, l2)
+l1 = [300.0,100.0,100.0,100.0,100.0,100.0]
+
+n = 6
+n1 = list(range(n))
+l2 = lambda n: 1.0*(1.005**n)
+l3 = convolucao2(l1, l2, n)
+n = list(range(20))
+#xn = [np.cos((np.pi*i)/4) for i in n]
+#n2 = list(range(20))
+#xn2= [np.cos((3*np.pi*i)/8) for i in n]
+
+
+#y = lfilter(b, a, x)
 print(l3)
+plt.stem(n1,l3)
+plt.show()
+
 
 

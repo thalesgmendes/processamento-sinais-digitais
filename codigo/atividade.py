@@ -16,6 +16,7 @@ def eq_diferenca(a, b, c, n1, n2, n):
         ind = np.array([n1[1], n2[1]])
         c12 = np.linalg.solve(coef, ind)
         l2 = [c12[0]*(raizes[0]**k) + c12[1]*(raizes[1]**k) for k in n]
+
     else:
         c12 = n1[1] / (raizes[0]**n1[0])
         l2 = [c12*(raizes[0]**k) for k in n]
@@ -25,11 +26,19 @@ def eq_diferenca(a, b, c, n1, n2, n):
 
     return c12, raizes, l2, estabilidade
 
-n1 = [-1, 0]
-n2 = [-2, 6.25]
-n = list(range(20))
-c12, raizes, l2, estabilidade = eq_diferenca(1, -0.6, -0.16, n1, n2, n)
-print(c12, raizes)
+
+n1 = [0, 1]
+n2 = []
+#n1 = [0, 5]
+#n2 = [1, 3]
+n = list(range(8))
+c12, raizes, l2, estabilidade = eq_diferenca(0, 1, -1.005, n1, n2, n)
+#c12, raizes, l2, estabilidade = eq_diferenca(1, -0.6, -0.16, n1, n2, n)
+#conta = c12[0]*(raizes[0]**5) + c12[1]*(raizes[1]**5)
+
+conta = c12*(raizes[0]**5)
+print(c12, raizes, conta)
+print
 
 plt.stem(n, l2)
 plt.title(estabilidade)
