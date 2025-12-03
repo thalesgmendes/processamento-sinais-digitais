@@ -71,6 +71,7 @@ def convolucao2(xn, hn, n):
 #l1 = [0.8,0,0.5,0.70,0,1.3]
 #l2=[1.0,0,0.25,0.125,0,0.0625]
 #l3 = convolucao2(l1, l2)
+''''
 l1 = [300.0,100.0,100.0,100.0,100.0,100.0]
 
 n = 6
@@ -84,9 +85,7 @@ n = list(range(20))
 
 
 #y = lfilter(b, a, x)
-print(l3)
-plt.stem(n1,l3)
-plt.show()
 
 
+'''
 
