@@ -47,7 +47,7 @@ plt.show()
 
 
 t = np.arange(0, 0.01, 1/fs)
-x2 = np.cos(2*np.pi*2000*t)
+x2 = np.sin(2*np.pi*2000*t)
 
 n = len(t)
 y = convolucao(x2.tolist(), h, n)
